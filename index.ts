@@ -1,13 +1,12 @@
 import { registerRootComponent } from "expo";
 
-import login from "./src/login";
+import 'react-native-reanimated';
+import App from "./App"; // Altere para importar o App
 import { StyleSheet } from "react-native";
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
+// Registra o componente App como raiz
+registerRootComponent(App);
 
-registerRootComponent(login);
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -16,7 +15,6 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
   },
-
   email: {
     height: 40,
     borderColor: "gray",
@@ -37,14 +35,12 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "#ffffff",
   },
-
   subConteiner: {
     flexDirection: "row",
     justifyContent: "space-between",
     width: "80%",
     marginTop: 10,
   },
-
   options: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -52,7 +48,6 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
   },
-
   Facebook: {
     flexDirection: "row",
     alignItems: "center",
@@ -61,10 +56,9 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "gray",
-    width: "45%",
-    marginRight: 10,
+    width: "42%",
+    marginRight: 40,
   },
-
   Google: {
     flexDirection: "row",
     alignItems: "center",
@@ -73,7 +67,18 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "gray",
-    width: "45%",
+    width: "40%",
     marginLeft: 10,
+  },
+
+  cadastro: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    marginBottom: 20,
+    marginTop: -15,
+    padding: 20,
+    backgroundColor: "#ffffff",
   },
 });

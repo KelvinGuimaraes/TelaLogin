@@ -1,48 +1,95 @@
 import React from "react";
+import {
+  Text,
+  View,
+  TextInput,
+  Pressable,
+  Button,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import { styles } from "../index";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+
+type RootStackParamList = {
+  login: undefined;
+  Cadastro: undefined;
+};
 
 const Cadastro: React.FC = () => {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <form
-        style={{ display: "flex", flexDirection: "column", width: "300px" }}
-      >
-        <h2>Cadastro</h2>
-        <label htmlFor="nome">Nome:</label>
-        <input
-          type="text"
-          id="nome"
-          name="nome"
+    <View style={styles.container}>
+      <Image
+        source={require("../assets/Group329.png")}
+        style={{ margin: 25, marginTop: -20 }}
+      />
+
+      <View style={{ alignItems: "center", marginBottom: 20 }}>
+        <Text style={{ fontSize: 24, fontWeight: "bold" }}>Cadastro</Text>
+        <Text style={{ fontSize: 16, color: "gray" }}>
+          Faça o cadastro para continuar:
+        </Text>
+      </View>
+
+      <Pressable style={styles.cadastro}>
+        <TextInput
+          style={styles.email}
           placeholder="Digite seu nome"
+          accessibilityLabel="nome"
+          autoCapitalize="none"
+          autoComplete="name"
         />
 
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Digite seu email"
+        <TextInput
+          style={styles.email}
+          placeholder="Email"
+          keyboardType="email-address"
+          autoCapitalize="none"
+          autoComplete="email"
         />
 
-        <label htmlFor="senha">Senha:</label>
-        <input
-          type="password"
-          id="senha"
-          name="senha"
-          placeholder="Digite sua senha"
+        <TextInput
+          style={styles.email}
+          placeholder="Telefone"
+          keyboardType="phone-pad"
+          autoCapitalize="none"
+          autoComplete="tel"
         />
 
-        <button type="submit" style={{ marginTop: "20px" }}>
-          Cadastrar
-        </button>
-      </form>
-    </div>
+        <TextInput
+          style={styles.senha}
+          placeholder="Senha"
+          autoCapitalize="none"
+          secureTextEntry
+        />
+
+        <TextInput
+          style={styles.senha}
+          placeholder="Confirmar senha"
+          autoCapitalize="none"
+          secureTextEntry
+        />
+      </Pressable>
+
+      <Pressable
+        style={{
+          width: "70%",
+          borderRadius: 10,
+          marginBottom: 20,
+          marginTop: -20,
+        }}
+      >
+        <View style={{ borderRadius: 10, overflow: "hidden" }}>
+          <Button
+            color={"#454B60"}
+            title="Entrar"
+            onPress={() => navigation.navigate("login")}
+          />
+        </View>
+      </Pressable>
+    </View>
   );
 };
 

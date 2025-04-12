@@ -24,7 +24,7 @@ export default function Login({
         source={require("../assets/Group329.png")}
         style={{ margin: 20 }}
       />
-      
+
       {/* mensagem de boas vindas */}
       <View style={{ alignItems: "center", marginBottom: 20 }}>
         <Text style={{ fontSize: 24, fontWeight: "bold" }}>
@@ -67,7 +67,6 @@ export default function Login({
       <Text style={{ fontSize: 16, color: "gray" }}>continuar com:</Text>
       {/* Opções de login */}
       <View style={styles.options}>
-
         {/* Botão do Facebook */}
         <Pressable style={styles.Facebook}>
           <TouchableOpacity
@@ -101,13 +100,8 @@ export default function Login({
           <Text style={{ color: "#454B60" }}>Esqueceu a senha?</Text>
         </Pressable>
 
-        <Pressable>
-          <Text
-            style={{ color: "#454B60" }}
-            onPress={() => navigation.navigate("Cadastro")}
-          >
-            Criar conta:
-          </Text>
+        <Pressable onPress={() => navigation.navigate("Cadastro")}>
+          <Text style={{ color: "#454B60" }}>Criar conta:</Text>
         </Pressable>
       </View>
     </View>
